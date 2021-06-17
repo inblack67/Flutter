@@ -1,10 +1,14 @@
 import 'package:crash_course/components/containers.dart';
 import 'package:crash_course/components/image_banner.dart';
 import 'package:flutter/material.dart';
+import 'package:crash_course/styles/style.dart';
 
 void main() => runApp(
   MaterialApp(
     home: LocationDetails(),
+    theme: ThemeData(appBarTheme: AppBarTheme(
+      textTheme: TextTheme(headline6:  AppBarTextStyle)
+    )),
   )
 );
 
