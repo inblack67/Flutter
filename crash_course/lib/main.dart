@@ -1,4 +1,5 @@
 import 'package:crash_course/components/containers.dart';
+import 'package:crash_course/components/image_banner.dart';
 import 'package:flutter/material.dart';
 
 void main() => runApp(
@@ -19,6 +20,7 @@ class LocationDetails extends StatelessWidget {
         MyBox(Colors.red, "Hello"),
         MyBox(Colors.green, "Hello"),
         MyBox(Colors.blue, "How Low"),
+        ImageBanner('assets/images/phoex.jpeg')
       ],),
     );
   }
