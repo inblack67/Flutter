@@ -15,6 +15,10 @@ class User{
 
   save(){
     print('form submitted');
+    print(firstName);
+    print(lastName);
+    print(passions);
+    print(newsLetter);
   }
 
 }
