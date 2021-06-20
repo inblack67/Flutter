@@ -9,23 +9,24 @@ class MyApp extends StatelessWidget {
         home: Scaffold(
       appBar: AppBar(
         title: Text(
-          "Fundamentals",
+          'Fundamentals',
         ),
         centerTitle: true,
         backgroundColor: Colors.red[500],
       ),
       body: Center(
           child: Text(
-        "Hello",
+        'Hello',
         style: TextStyle(
           color: Colors.red[500],
           fontWeight: FontWeight.bold,
           fontSize: 20.0,
+          fontFamily: 'Montserrat',
         ),
       )),
       floatingActionButton: FloatingActionButton(
         onPressed: () {},
-        child: Text("Click"),
+        child: Text('Click'),
         backgroundColor: Colors.red[500],
       ),
     ));
