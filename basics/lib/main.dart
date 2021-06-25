@@ -14,17 +14,17 @@ class MyApp extends StatelessWidget {
         centerTitle: true,
         backgroundColor: Colors.red[500],
       ),
-      body: Container(
-        child: Center(
-          child: ElevatedButton.icon(
-            icon: Icon(
-              Icons.ac_unit,
-              color: Colors.red,
-            ),
-            onPressed: () {},
-            label: Text('Hello'),
-          ),
-        ),
+      body: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: <Widget>[
+          Text('hello'),
+          ElevatedButton(onPressed: () {}, child: Text('worlds')),
+          Container(
+            color: Colors.red,
+            padding: EdgeInsets.all(16.0),
+            child: Text('some container'),
+          )
+        ],
       ),
     ));
   }
