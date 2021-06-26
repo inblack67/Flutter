@@ -18,7 +18,9 @@ class MyApp extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: <Widget>[
           Text('hello'),
-          ElevatedButton(onPressed: () {}, child: Text('worlds')),
+          Expanded(
+              flex: 1,
+              child: ElevatedButton(onPressed: () {}, child: Text('worlds'))),
           Container(
             color: Colors.red,
             padding: EdgeInsets.all(16.0),
