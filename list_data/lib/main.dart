@@ -17,6 +17,34 @@ class _WListsState extends State<WLists> {
     Quote(author: 'FP', text: 'Do you code functional programming?'),
   ];
 
+  Widget getCard(Quote quote) => Card(
+        color: Colors.grey,
+        child: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: <Widget>[
+              Text(
+                quote.author,
+                style: TextStyle(
+                  color: Colors.grey[850],
+                  fontWeight: FontWeight.bold,
+                  fontSize: 20.0,
+                ),
+              ),
+              SizedBox(height: 4.0),
+              Text(
+                quote.text,
+                style: TextStyle(
+                  color: Colors.black,
+                  fontSize: 15.0,
+                ),
+              ),
+            ],
+          ),
+        ),
+      );
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -24,9 +52,7 @@ class _WListsState extends State<WLists> {
         title: Text('Quotes'),
       ),
       body: Column(
-        children: _quotes
-            .map((quote) => Text('${quote.author} => ${quote.text}'))
-            .toList(),
+        children: _quotes.map((quote) => getCard(quote)).toList(),
       ),
     );
   }
