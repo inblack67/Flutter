@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:list_data/quote.dart';
 
 void main() => runApp(MaterialApp(
       home: WLists(),
@@ -10,11 +11,10 @@ class WLists extends StatefulWidget {
 }
 
 class _WListsState extends State<WLists> {
-  List<String> _quotes = [
-    'hello',
-    'worlds',
-    'do you even Vim?',
-    'Do you code functional programming?'
+  List<Quote> _quotes = [
+    Quote(author: 'Everyone', text: 'Hello worlds'),
+    Quote(author: 'Unknown', text: 'do you even Vim?'),
+    Quote(author: 'FP', text: 'Do you code functional programming?'),
   ];
 
   @override
@@ -24,7 +24,9 @@ class _WListsState extends State<WLists> {
         title: Text('Quotes'),
       ),
       body: Column(
-        children: _quotes.map((quote) => Text(quote)).toList(),
+        children: _quotes
+            .map((quote) => Text('${quote.author} => ${quote.text}'))
+            .toList(),
       ),
     );
   }
