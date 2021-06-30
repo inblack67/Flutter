@@ -1,12 +1,14 @@
 import 'dart:convert';
 
 import 'package:http/http.dart';
+import 'package:intl/intl.dart';
 
 class WorldTime {
   String location;
   String time = '';
   String flagURL;
   String apiQueryURL;
+  bool isDayTime = false;
 
   WorldTime(
       {required this.flagURL,
@@ -22,7 +24,9 @@ class WorldTime {
       String utcOffset = data['utc_offset'];
       DateTime currentTime = DateTime.parse(utcDate)
           .add(Duration(hours: int.parse(utcOffset.substring(1, 3))));
-      time = currentTime.toString();
+      isDayTime =
+          currentTime.hour > 6 && currentTime.hour < 18 ? true : false;
+      time = DateFormat.jm().format(currentTime);
     } catch (e) {
       print(e);
       time = 'Error in fetching time';
