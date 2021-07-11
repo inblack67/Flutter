@@ -1,8 +1,0 @@
-query fetchCountries {
-	countries{
-		code
-		name
-		native 
-		emoji
-	}
-}
