@@ -1,3 +1,5 @@
+import 'dart:js';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -10,15 +12,36 @@ final numberProvider = Provider<int>((ref) {
   return 43;
 });
 
+final numberStateProvider = StateProvider<int>((ref) {
+  return 30;
+});
+
 class MyApp extends ConsumerWidget {
   const MyApp({Key? key}) : super(key: key);
+
+  void increment(BuildContext context) {
+    context.read(numberStateProvider).state++;
+  }
 
   @override
   Widget build(BuildContext context, ScopedReader watch) {
     final number = watch(numberProvider);
+    final numberState = watch(numberStateProvider).state;
     return MaterialApp(
       home: Scaffold(
-        body: Container(child: Text('number => $number')),
+        appBar: AppBar(),
+        body: Center(
+            child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            Text('number => $number'),
+            Text('number state => $numberState'),
+          ],
+        )),
+        floatingActionButton: FloatingActionButton(
+          onPressed: () => increment(context),
+          child: Icon(Icons.add),
+        ),
       ),
     );
   }
